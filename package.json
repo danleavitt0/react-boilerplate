@@ -28,7 +28,9 @@
     "react": "^0.13.2",
     "reactify": "^1.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^3.7.2"
+  },
   "keywords": [
     "react",
     "beefy"
