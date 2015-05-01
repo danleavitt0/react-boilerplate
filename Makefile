@@ -13,7 +13,7 @@ NODE_BIN = ./node_modules/.bin
 # 	@${NODE_BIN}/jshint lib/** test/**
 
 test:
-	@${NODE_BIN}/beefy ./lib/index.js 3000 --live -- -t reactify 
+	@${NODE_BIN}/beefy index.jsx --live --open -- -t reactify 
 
 ci: validate test
 
