@@ -18,7 +18,7 @@ link: clean
 	@ln -s ${PWD}/lib node_modules/lib
 
 dev: link
-	@${NODE_BIN}/beefy index.jsx --live -- -t reactify 
+	@${NODE_BIN}/beefy index.js --live -- -t -g reactify
 
 
 
