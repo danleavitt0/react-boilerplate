@@ -17,9 +17,12 @@ clean:
 link: clean
 	@ln -s ${PWD}/lib node_modules/lib
 
-dev: link
-	@${NODE_BIN}/beefy index.js --live -- -t -g reactify
+less:
+	@${NODE_BIN}/lessc style.less > style.css
+
+dev: link less
+	@${NODE_BIN}/beefy index.jsx --live --open -- -t [reactify]
 
 
 
-.PHONY: validate clean link dev
+.PHONY: validate clean link dev less
