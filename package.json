@@ -29,6 +29,7 @@
     "material-ui": "^0.7.5",
     "method-override": "^2.3.2",
     "morgan": "^1.5.2",
+    "node-lessify": "0.0.10",
     "react": "^0.13.2",
     "reactify": "^1.1.0"
   },
