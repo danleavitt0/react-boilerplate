@@ -17,11 +17,8 @@ clean:
 link: clean
 	@ln -s ${PWD}/lib node_modules/lib
 
-less:
-	@${NODE_BIN}/lessc style.less > style.css
-
-dev: link less
-	@${NODE_BIN}/beefy index.jsx --live --open -- -t [reactify]
+dev: link
+	@${NODE_BIN}/beefy index.jsx --live --open -- -t reactify -t lessify -i react
 
 
 
