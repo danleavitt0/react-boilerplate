@@ -45,6 +45,7 @@ var AddButton = React.createClass({
 				ref = "standardDialog"
 				title = "Create Post"
 				actions = {customActions}
+				dismissOnClickAway={true}
 			/>		
 		</div>
 	)}
