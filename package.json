@@ -25,6 +25,8 @@
     "less": "^2.5.0",
     "lessify": "^1.0.1",
     "lodash": "^3.7.0",
+    "material-design-icons": "^1.0.1",
+    "material-ui": "^0.7.5",
     "method-override": "^2.3.2",
     "morgan": "^1.5.2",
     "react": "^0.13.2",
@@ -34,7 +36,10 @@
     "standard": "^3.7.2"
   },
   "browserify": {
-    "transform": ["lessify", "reactify"]
+    "transform": [
+      "lessify",
+      "reactify"
+    ]
   },
   "keywords": [
     "react",
