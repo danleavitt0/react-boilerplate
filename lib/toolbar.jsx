@@ -14,7 +14,6 @@ var TopBar = React.createClass({
 		}
 	},
 	componentDidMount: function() {
-		this.button = this.props.children;
 	},
 	handleClick: function() {
 		console.log('handle click');
@@ -28,8 +27,11 @@ var TopBar = React.createClass({
 			<ToolbarGroup float="left" className="mui-paper-container">
 				<h3 className="mui-app-bar-title"> {this.props.title} </h3>
 			</ToolbarGroup>
-			<ToolbarGroup float="right">
+			<ToolbarGroup float="right" className="icon-group mui-paper-container">
 				{this.props.children[1]}
+			</ToolbarGroup>
+			<ToolbarGroup float="right">
+				{this.props.children[2]}
 			</ToolbarGroup>
 		</Toolbar>
 	)}

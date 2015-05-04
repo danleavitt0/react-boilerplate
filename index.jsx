@@ -1,7 +1,10 @@
+require('lib/style.less');
+
 var React = require('react'),
 		Toolbar = require('lib/toolbar.jsx'),
 		LoginButton = require('lib/login.jsx'),
-		MenuButton = require('lib/menuButton.jsx')
+		MenuButton = require('lib/menuButton.jsx'),
+		AddButton = require('lib/AddButton.jsx')
 
 var App = React.createClass({
 	handleClick: function() {
@@ -12,6 +15,7 @@ var App = React.createClass({
 		<div className = "main-container">
 			<Toolbar title = "InstaBook">
 				<MenuButton />
+				<AddButton />
 				<LoginButton handleClick={this.handleClick} label="login" />
 			</Toolbar>
 		</div>
