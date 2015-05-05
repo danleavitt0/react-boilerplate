@@ -1,5 +1,8 @@
 require('lib/style.less');
 
+var injectTapEventPlugin = require('react-tap-event-plugin');
+injectTapEventPlugin();
+
 var React = require('react'),
 		Toolbar = require('lib/toolbar.jsx'),
 		LoginButton = require('lib/login.jsx'),

@@ -8,19 +8,13 @@ var React = require('react'),
 
 var standardActions = [
   { text: 'Cancel' },
-  { text: 'Submit', onClick: this._onDialogSubmit, ref: 'submit' }
+  { text: 'Submit', onClick: this.submitPost, ref: 'submit' }
 ];
 
 var customActions = [
 	<FlatButton
-		label = "Cancel"
-		secondary = {true}
-		onTouchTap = {this._closeModal}
-	/>,
-	<FlatButton
-		label = "Post"
-		primary = {true}
-		onTouchTap = {this._submitPost}
+		label="Cancel"
+		onClick={this.closeModal}
 	/>
 ]
 
@@ -28,12 +22,12 @@ var AddButton = React.createClass({
 	openModal: function () {
 		this.refs.standardDialog.show();
 	},
-	_closeModal: function () {
-		console.log('close modal');
-		this.refs.standardDialog.hide();
+	closeModal: function () {
+		this.refs.standardDialog.dismiss();
 	},
-	_submitPost: function () {
-		console.log('submit post');
+	submitPost: function () {
+		this.refs.standardDialog.dismiss();
+		console.log('submit');
 	},
 	render: function () {
 	return (
