@@ -8,10 +8,6 @@ var style = {
 }
 
 var LoginButton = React.createClass({
-	handleClick: function () {
-		var handler = this.props.handleClick || function () {};
-		handler();
-	},
 	getDefaultProps: function () {
 		return {
 			label: "Add a label"
@@ -21,7 +17,6 @@ var LoginButton = React.createClass({
 	return(
 		<RaisedButton 
 			secondary={true}
-			onClick={this.handleClick}
 			style={style} 
 			label={this.props.label} 
 		/>

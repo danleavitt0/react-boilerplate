@@ -26,7 +26,7 @@ var AddButton = React.createClass({
 			<IconButton onClick={this.openModal} tooltip="Add Post">
 				<AddButtonImage />
 			</IconButton>
-			<Dialog ref="standardDialog" title="Post Form">
+			<Dialog className="post-dialog" ref="standardDialog" title="Post Form">
 				<PostForm />
 				<div className="actions">
 					<FlatButton

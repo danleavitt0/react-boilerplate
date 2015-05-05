@@ -25,14 +25,15 @@
   color:@dark-black
 }
 
+.post-dialog {
+  .mui-dialog-window-contents {
+    max-width:330px
+  }
+}
+
 .mui-dialog {
   h3.mui-dialog-title {
     line-height: initial;
-  }
-  .actions {
-    position:absolute;
-    bottom:10px;
-    right:0
   }
 
   .newPostForm {
@@ -51,18 +52,33 @@
 	color:white;
 	box-shadow:0 2px 5px rgba(0,0,0,0.3);
 	height:66px;
+  .mui-toolbar-group {
+    display:inline-block;
+    position:absolute;
+    top:0;
+    &.AddButton {
+      margin:9px;
+      right:120px;
+    }
+    &.LoginButton {
+      right:0;
+    }
+    &.MenuButton {
+      left:10px;
+    }
+  }
 	.mui-ripple-circle-inner {
 		background-color:rgba(255,255,255,0.2)
 	}
 	.mui-toolbar-group.mui-left:first-child {
 	  margin-left: -10px;
 	}
-	.icon-group {
+	.AddButton, .MenuButton {
 		margin:9px;
 	}
 	h3 {
 		padding:0;
-		margin:0;
+	  margin: 0 60px;
 		color:inherit;
 		line-height: 66px;
 	}

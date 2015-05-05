@@ -13,26 +13,18 @@ var TopBar = React.createClass({
 			title: 'Add A Title'
 		}
 	},
-	componentDidMount: function() {
-	},
-	handleClick: function() {
-		console.log('handle click');
-	},
 	render: function () {
+		var toolbarChildren = this.props.children.map(function(el, i){
+		return (
+			<ToolbarGroup className={el.type.displayName}>
+				{el}
+			</ToolbarGroup>
+		)
+		})
 	return(
 		<Toolbar className="main-nav">
-			<ToolbarGroup className="icon-group" float="left">
-				{this.props.children[0]} 
-			</ToolbarGroup>
-			<ToolbarGroup float="left" className="mui-paper-container">
-				<h3 className="mui-app-bar-title"> {this.props.title} </h3>
-			</ToolbarGroup>
-			<ToolbarGroup float="right" className="icon-group mui-paper-container">
-				{this.props.children[1]}
-			</ToolbarGroup>
-			<ToolbarGroup float="right">
-				{this.props.children[2]}
-			</ToolbarGroup>
+			<h3> {this.props.title} </h3>
+			{toolbarChildren}
 		</Toolbar>
 	)}
 })

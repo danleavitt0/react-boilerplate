@@ -10,9 +10,6 @@ var React = require('react'),
 		AddButton = require('lib/AddButton.jsx')
 
 var App = React.createClass({
-	handleClick: function() {
-		console.log('click');
-	},
 	render: function() {
 	return (
 		<div className = "main-container">

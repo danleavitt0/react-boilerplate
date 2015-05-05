@@ -1,7 +1,5 @@
 {
   "name": "components",
-  "version": "0.0.0",
-  "files": ["style.less"],
   "browserify": {
   	"transform": ["reactify", "node-lessify"]
   }
