@@ -1,33 +1,24 @@
 var React = require('react'),
 		AddButtonImage = require('lib/AddButtonImage.jsx'),
-		PostForm = require('lib/PostForm.jsx'),
+		PostForm = require('lib/PostForm.jsx')
 		mui = require('material-ui'),
 		IconButton = mui.IconButton,
-		Dialog = mui.Dialog,
-		FlatButton = mui.FlatButton
+		FlatButton = mui.FlatButton,
+		Dialog = mui.Dialog
 
-var standardActions = [
-  { text: 'Cancel' },
-  { text: 'Submit', onClick: this.submitPost, ref: 'submit' }
-];
 
-var customActions = [
-	<FlatButton
-		label="Cancel"
-		onClick={this.closeModal}
-	/>
-]
 
 var AddButton = React.createClass({
 	openModal: function () {
 		this.refs.standardDialog.show();
 	},
-	closeModal: function () {
+	_closeModal: function () {
+		console.log('close modal');
 		this.refs.standardDialog.dismiss();
 	},
-	submitPost: function () {
+	_submitPost: function () {
+		console.log('submit post');
 		this.refs.standardDialog.dismiss();
-		console.log('submit');
 	},
 	render: function () {
 	return (
@@ -35,12 +26,21 @@ var AddButton = React.createClass({
 			<IconButton onClick={this.openModal} tooltip="Add Post">
 				<AddButtonImage />
 			</IconButton>
-			<Dialog
-				ref = "standardDialog"
-				title = "Create Post"
-				actions = {customActions}
-				dismissOnClickAway={true}
-			/>		
+			<Dialog ref="standardDialog" title="Post Form">
+				<PostForm />
+				<div className="actions">
+					<FlatButton
+						label = "Cancel"
+						secondary = {true}
+						onClick = {this._closeModal}
+					/>
+					<FlatButton
+						label = "Post"
+						primary = {true}
+						onClick = {this._submitPost}
+					/>
+				</div>
+			</Dialog>
 		</div>
 	)}
 })
