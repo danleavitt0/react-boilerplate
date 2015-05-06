@@ -18,7 +18,7 @@ var AddButton = React.createClass({
 		this.refs.standardDialog.dismiss();
 	},
 	_submitPost: function () {
-		PostActions.create({authorName:'Jesus', text:'Aint this a trip'})
+		PostActions.create({authorName:'Author', text:'Writing new things'})
 		this.refs.standardDialog.dismiss();
 	},
 	render: function () {

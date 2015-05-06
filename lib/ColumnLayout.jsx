@@ -1,14 +1,53 @@
 var React = require('react')
 var _ = require('lodash')
 
+
+var numColumns = 1;
+
+
+function getColumnNumber () {
+  var cols
+  var width = window.innerWidth
+
+  if (width < 1000)
+    cols = 1
+  else if (width < 1500)
+    cols = 2
+  else
+    cols = 3
+
+  return { numColumns: cols }
+
+}
+
 var ColumnLayout = React.createClass({
 
   getInitialState: function() {
-    return {windowWidth: window.innerWidth}
+    return getColumnNumber()
+  },
+
+  getColumnPosts: function (columnNum) {
+    var posts = _.map(_.sortByOrder(this.props.children, ['key'], [false]), _.values)
+    console.log(posts)
+    switch (this.state.numColumns) {
+      case 2:
+        return _.filter(this.props.children, function(card, i){
+          return i % 2 === columnNum - 1
+        })
+        break
+      case 3:
+        return _.filter(this.props.children, function(card, i){
+          return i % 3 === columnNum - 1
+        })
+        break
+      default:
+        return this.props.children
+        break
+    }
   },
 
   handleResize: function(e) {
-    this.setState({windowWidth: window.innerWidth})
+    this.setState(getColumnNumber())
   },
 
   componentDidMount: function() {
@@ -21,12 +60,13 @@ var ColumnLayout = React.createClass({
 
   render: function() {
     var cols = []
-    var self = this;
-    for(var i = 0; i < this.props.cols; i++){
+
+    for(var i = 1; i <= this.state.numColumns; i++){
       var colNum = "md-column md-column-"+i
+      var posts = this.getColumnPosts(i)
       cols.push(
         <div className={colNum}>
-          {self.props.children}
+          {posts}
         </div>
       )
     }
