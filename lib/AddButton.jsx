@@ -1,9 +1,11 @@
 var React = require('react'),
+		PostActions = require('lib/actions/PostActions')
 		AddButtonImage = require('lib/AddButtonImage.jsx'),
 		PostForm = require('lib/PostForm.jsx')
 		mui = require('material-ui'),
 		IconButton = mui.IconButton,
 		FlatButton = mui.FlatButton,
+		ToolbarGroup = mui.ToolbarGroup,
 		Dialog = mui.Dialog
 
 
@@ -13,16 +15,15 @@ var AddButton = React.createClass({
 		this.refs.standardDialog.show();
 	},
 	_closeModal: function () {
-		console.log('close modal');
 		this.refs.standardDialog.dismiss();
 	},
 	_submitPost: function () {
-		console.log('submit post');
+		PostActions.create({authorName:'Jesus', text:'Aint this a trip'})
 		this.refs.standardDialog.dismiss();
 	},
 	render: function () {
 	return (
-		<div>
+		<ToolbarGroup className="AddButton">
 			<IconButton onClick={this.openModal} tooltip="Add Post">
 				<AddButtonImage />
 			</IconButton>
@@ -41,7 +42,7 @@ var AddButton = React.createClass({
 					/>
 				</div>
 			</Dialog>
-		</div>
+		</ToolbarGroup>
 	)}
 })
 

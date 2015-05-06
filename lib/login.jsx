@@ -1,6 +1,7 @@
 var React = require('react'),
 	mui = require('material-ui'),
-	RaisedButton = mui.RaisedButton;
+	RaisedButton = mui.RaisedButton,
+	ToolbarGroup = mui.ToolbarGroup
 
 var style = {
 	float: 'right',
@@ -15,11 +16,13 @@ var LoginButton = React.createClass({
 	},
 	render: function () {
 	return(
-		<RaisedButton 
-			secondary={true}
-			style={style} 
-			label={this.props.label} 
-		/>
+		<ToolbarGroup className="LoginButton">
+			<RaisedButton 
+				secondary={true}
+				style={style} 
+				label={this.props.label} 
+			/>
+		</ToolbarGroup>
 	)}
 })
 

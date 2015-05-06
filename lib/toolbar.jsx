@@ -1,7 +1,10 @@
 var React = require('react'),
 	mui = require('material-ui'),
+	LoginButton = require('lib/login.jsx'),
+	MenuButton = require('lib/menuButton.jsx'),
+	AddButton = require('lib/AddButton.jsx'),
 	Toolbar = mui.Toolbar,
-	ToolbarGroup = mui.ToolbarGroup;
+	ToolbarGroup = mui.ToolbarGroup
 
 var iconStyle = {
 	margin: '9px'
@@ -14,17 +17,12 @@ var TopBar = React.createClass({
 		}
 	},
 	render: function () {
-		var toolbarChildren = this.props.children.map(function(el, i){
-		return (
-			<ToolbarGroup className={el.type.displayName}>
-				{el}
-			</ToolbarGroup>
-		)
-		})
 	return(
 		<Toolbar className="main-nav">
 			<h3> {this.props.title} </h3>
-			{toolbarChildren}
+			<MenuButton />
+			<AddButton />
+			<LoginButton label="login" />
 		</Toolbar>
 	)}
 })

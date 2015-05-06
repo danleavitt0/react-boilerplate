@@ -10,11 +10,40 @@
 @accent-1-color: @pink-A200;
 @accent-2-color: @pink-A400;
 @accent-3-color: @pink-A100;
+@toolbar-color: @indigo-500;
 
+body {
+  background-color: @grey-100;
+}
+
+.post-section {
+  background-color: @grey-100;
+}
 //Your custom app styles
-.example-page {
-  text-align: center;
-  padding-top: 200px;
+.md-grid-container {
+  display:table;
+  margin: 10px auto;
+  .md-column {
+    width:440px;
+    max-width:100%;
+    margin:10px;
+    display:inline-block;
+    .md-card {
+      transition: all .3s ease-in-out;
+      background-color:#ffffff;
+      margin:20px 0;
+      .md-card-container {
+        padding:15px;
+        .title {
+          padding:0;
+        }
+        .body {
+          font-size:18px;
+          font-weight:300;
+        }
+      }
+    }
+  }
 }
 
 .mui-svg-icon * {
@@ -22,7 +51,8 @@
 }
 
 .mui-toolbar h3.mui-dialog-title {
-  color:@dark-black
+  color:@dark-black;
+  margin:0;
 }
 
 .post-dialog {
@@ -46,9 +76,22 @@
   }
 }
 
+.mui-left-nav-menu {
+  color: @dark-black;
+  .logo {
+    height: 66px;
+    width: 100%;
+    color: white;
+    background-color: @toolbar-color;
+    font-size: 24px;
+    line-height: 66px;
+    padding-left:15px
+  }
+}
+
 
 .mui-toolbar {
-	background-color: @indigo-500;
+	background-color: @toolbar-color;
 	color:white;
 	box-shadow:0 2px 5px rgba(0,0,0,0.3);
 	height:66px;
