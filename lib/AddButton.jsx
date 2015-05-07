@@ -3,6 +3,7 @@ var React = require('react'),
 		AddButtonImage = require('lib/AddButtonImage.jsx'),
 		PostForm = require('lib/PostForm.jsx')
 		mui = require('material-ui'),
+		_ = require('lodash'),
 		IconButton = mui.IconButton,
 		FlatButton = mui.FlatButton,
 		ToolbarGroup = mui.ToolbarGroup,
@@ -18,8 +19,12 @@ var AddButton = React.createClass({
 		this.refs.standardDialog.dismiss();
 	},
 	_submitPost: function () {
-		PostActions.create({authorName:'Author', text:'Writing new things'})
-		this.refs.standardDialog.dismiss();
+		var fields = this.refs.postForm.getValues();
+		fields.authorName = "This User"
+		if (fields) {
+			PostActions.create(fields)
+			this.refs.standardDialog.dismiss();
+		}
 	},
 	render: function () {
 	return (
@@ -28,7 +33,7 @@ var AddButton = React.createClass({
 				<AddButtonImage />
 			</IconButton>
 			<Dialog className="post-dialog" ref="standardDialog" title="Post Form">
-				<PostForm />
+				<PostForm ref="postForm"/>
 				<div className="actions">
 					<FlatButton
 						label = "Cancel"

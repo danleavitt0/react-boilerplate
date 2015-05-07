@@ -27,21 +27,20 @@ var ColumnLayout = React.createClass({
   },
 
   getColumnPosts: function (columnNum) {
-    var posts = _.map(_.sortByOrder(this.props.children, ['key'], [false]), _.values)
-    console.log(posts)
+    var posts = _.sortByOrder(this.props.children, ['key'], [false])
     switch (this.state.numColumns) {
       case 2:
-        return _.filter(this.props.children, function(card, i){
+        return _.filter(posts, function(card, i){
           return i % 2 === columnNum - 1
         })
         break
       case 3:
-        return _.filter(this.props.children, function(card, i){
+        return _.filter(posts, function(card, i){
           return i % 3 === columnNum - 1
         })
         break
       default:
-        return this.props.children
+        return posts
         break
     }
   },
