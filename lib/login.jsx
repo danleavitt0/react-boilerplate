@@ -14,10 +14,14 @@ var LoginButton = React.createClass({
 			label: "Add a label"
 		}
 	},
+	login: function () {
+		// add login logic here
+	},
 	render: function () {
 	return(
 		<ToolbarGroup className="LoginButton">
 			<RaisedButton 
+				onClick={this.login}
 				secondary={true}
 				style={style} 
 				label={this.props.label} 

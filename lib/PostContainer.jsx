@@ -13,10 +13,14 @@ function getStateFromStores () {
 
 function getPostItem (post) {
 	return (
-		<Card 
-			key = {post.id}
-			post = {post}
-		/>
+		<Card key = {post.id} post = {post}>
+			<div className="post-info">
+				<h4 className="author"> {post.authorName} </h4>
+				<div className="date"> {post.date.toString()} </div>
+			</div>
+			<h3 className="title"> {post.title} </h3>
+			<div className="body"> {post.text} </div>
+		</Card>
 	)
 }
 

@@ -1,11 +1,16 @@
 var React = require('react'),
+		Form = require('lib/Form.jsx')
 		mui = require('material-ui'),
 		TextField = mui.TextField
 
 var PostForm = React.createClass({
 	getValues: function () {
-		var titleInput = this.refs.postTitle.getValue()
-		var textInput = this.refs.postText.getValue()
+
+		_.each(this.refs, function(input) {
+			if (!input.getValue())
+				input.setErrorText('This is a required field')
+		})
+
 		if (titleInput && textInput) {
 			_.each(this.refs, function(input){
 				input.setValue(' ')
@@ -17,7 +22,7 @@ var PostForm = React.createClass({
 			}
 		}
 		else if (!titleInput) {
-			this.refs.postTitle.setErrorText('This is a required field')
+			this.refs.postTitle.setErrorText()
 			return null
 		}
 		else if (!textInput) {
@@ -34,11 +39,12 @@ var PostForm = React.createClass({
 	},
 	render:function () {
 	return(
-		<div className="newPostForm">
+		<Form className="newPostForm">
 			<TextField 
 				hintText="Post Title"
 				ref="postTitle"
 				onChange={this.clearError}
+				require={true}
 			/>
 			<TextField 
 				hintText="What's on your mind?"
@@ -46,7 +52,7 @@ var PostForm = React.createClass({
 				ref="postText"
 				onChange={this.clearError}
 			/>
-		</div>
+		</Form>
 	)}
 })
 
