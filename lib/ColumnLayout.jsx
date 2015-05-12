@@ -64,7 +64,7 @@ var ColumnLayout = React.createClass({
       var colNum = "md-column md-column-"+i
       var posts = this.getColumnPosts(i)
       cols.push(
-        <div className={colNum}>
+        <div key={i} className={colNum}>
           {posts}
         </div>
       )
@@ -75,8 +75,8 @@ var ColumnLayout = React.createClass({
         {cols}
       </div>
     )
-  }
 
+  }
 })
 
 module.exports = ColumnLayout

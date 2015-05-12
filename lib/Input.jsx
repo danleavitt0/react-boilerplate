@@ -23,6 +23,12 @@ var Input = React.createClass({
   		errorText: 'This is a required field'
   	})
   },
+
+  clearValue: function () {
+    this.setState({
+      value: ''
+    })
+  },
   
   setValue: function (event) {
     this.setState({

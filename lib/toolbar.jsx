@@ -22,7 +22,7 @@ var TopBar = React.createClass({
 			<h3> {this.props.title} </h3>
 			<MenuButton />
 			<AddButton />
-			<LoginButton label="login" />
+			<LoginButton profile={this.props.profile} lock={this.props.lock} label="login" />
 		</Toolbar>
 	)}
 })

@@ -1,6 +1,5 @@
-var React = require('react')
-
-
+var React = require('react'),
+		_ = require('lodash')
 
 var Form = React.createClass({
 
@@ -25,28 +24,43 @@ var Form = React.createClass({
     }.bind(this))
   },
 
-	handleSubmit: function () {
-		this.updateModel()
+  validate: function () {
 		var clean = true;
 		_.forEach(this.inputs, function(input){
-			var val = input.state.value
 			if(input.props.require)
-				if(!val) {
+				if(!input.state.value) {
 					input.setErrorText()
 					clean = false
 				}
 		})
-		if (clean) return this.model
+		return clean
+  },
+
+  clearInputs: function () {
+		_.forEach(this.inputs, function(input){
+			input.clearValue()
+		})
+	},
+
+	handleSubmit: function () {
+		this.updateModel()
+		if (this.validate())  {
+			this.clearInputs()
+			return this.model
+		}
+	},
+
+	getChildren: function () {
+		var self = this
+		return React.Children.map(this.props.children, function(child) {
+			return child.props.name 
+				? React.cloneElement(child, { attachToForm: self.attachToForm, detachFromForm: self.detachFromForm })
+				: child
+		})
 	},
 
 	render: function () {
-		var self = this
-		var newChildren = React.Children.map(this.props.children, function(child) {
-			if(child.props.name)
-		  	return React.cloneElement(child, { attachToForm: self.attachToForm, detachFromForm: self.detachFromForm })
-		  else
-		  	return child
-		})
+		var newChildren = this.getChildren()
 		return (
 			<div className="md-form">
 				{newChildren}
