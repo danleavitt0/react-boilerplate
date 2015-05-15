@@ -29,7 +29,12 @@ var LoginButton = React.createClass({
 	render: function () {
 		if (this.props.profile) {
 			imageStyle = {
-				backgroundImage:'url('+this.props.profile.picture+')'
+				backgroundImage:'url('+this.props.profile.picture+')',
+				height:'50px',
+				width:'50px',
+				borderRadius:'50%',
+				backgroundSize:'cover',
+				border:'1px solid #ccc'
 			}
 			return (
 				<ToolbarGroup className="LoginButton">

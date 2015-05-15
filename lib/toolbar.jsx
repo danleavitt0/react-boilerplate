@@ -19,9 +19,9 @@ var TopBar = React.createClass({
 	render: function () {
 	return(
 		<Toolbar className="main-nav">
-			<h3> {this.props.title} </h3>
 			<MenuButton />
-			<AddButton />
+			<h3> {this.props.title} </h3>
+			<AddButton profile={this.props.profile} />
 			<LoginButton profile={this.props.profile} lock={this.props.lock} label="login" />
 		</Toolbar>
 	)}

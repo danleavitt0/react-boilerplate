@@ -47,7 +47,7 @@ var PostForm = React.createClass({
 	_submitPost: function () {
 		var fields = this.refs.form.handleSubmit()
 		if (fields) {
-			fields.authorName = "This User"
+			fields.authorName = this.props.profile.name
 			PostActions.create(fields)
 			this.props.dialog.refs.standardDialog.dismiss()
 		}

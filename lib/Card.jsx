@@ -4,6 +4,9 @@ var React = require('react'),
 
 
 var Card = React.createClass({
+	_handleDelete: function () {
+
+	},
 	render: function () {
 		return(
 			<Paper className="md-card" z-depth={1} rounded={true} >

@@ -20,7 +20,7 @@ var AddButton = React.createClass({
 				<AddButtonImage />
 			</IconButton>
 			<Dialog className="post-dialog" ref="standardDialog" title="Post Form">
-				<PostForm dialog={this} ref="postForm"/>
+				<PostForm profile={this.props.profile} dialog={this} ref="postForm"/>
 			</Dialog>
 		</ToolbarGroup>
 	)}

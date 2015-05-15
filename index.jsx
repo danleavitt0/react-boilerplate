@@ -1,13 +1,13 @@
-require('lib/style.less');
-
-var injectTapEventPlugin = require('react-tap-event-plugin');
-injectTapEventPlugin();
+require('lib/style.less')
 
 var React = require('react'),
+		injectTapEventPlugin = require('react-tap-event-plugin'),
 		Toolbar = require('lib/toolbar.jsx'),
 		PostContainer = require('lib/PostContainer.jsx'),
 		ProfileStore = require('lib/stores/ProfileStore'),
 		ProfileActions = require('lib/actions/ProfileActions')
+
+injectTapEventPlugin()
 
 var App = React.createClass({
 
@@ -24,7 +24,6 @@ var App = React.createClass({
 	componentWillUnmount: function() {
 		ProfileStore.removeChangeListener(this._onchange)
 	},
-
 
 	render: function() {
 	return (
