@@ -1,5 +1,6 @@
-var React = require('react')
-var _ = require('lodash')
+var React = require('react'),
+    ReactCSSTransitionGroup = React.addons.CSSTransitionGroup,
+    _ = require('lodash')
 
 
 var numColumns = 1;
@@ -65,7 +66,9 @@ var ColumnLayout = React.createClass({
       var posts = this.getColumnPosts(i)
       cols.push(
         <div key={i} className={colNum}>
-          {posts}
+          <ReactCSSTransitionGroup transitionName="example">
+            {posts}
+          </ReactCSSTransitionGroup>
         </div>
       )
     }

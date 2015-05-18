@@ -16,6 +16,24 @@ body {
   background-color: @grey-100;
 }
 
+.example-enter {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+}
+
 .post-section {
   background-color: @grey-100;
 }
@@ -30,7 +48,6 @@ body {
     display:inline-block;
     vertical-align: top;
     .md-card {
-      transition: all .3s ease-in-out;
       background-color:#ffffff;
       margin:20px 0;
       .md-card-container {

@@ -5,7 +5,8 @@ var React = require('react'),
 		PostStore = require('lib/stores/PostStore'),
 		PostActions = require('lib/actions/PostActions'),
 		ColumnLayout = require('lib/ColumnLayout.jsx'),
-		FlatButton = mui.FlatButton
+		FlatButton = mui.FlatButton,
+		ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
 
 function getStateFromStores () {
 	return {
